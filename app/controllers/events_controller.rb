@@ -25,6 +25,9 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        @event.capacity.times do |i|
+          @event.tickets.create(seat_number: "T-#{i}")
+        end
         format.html { redirect_to @event, notice: "Event was successfully created." }
         format.json { render :show, status: :created, location: @event }
       else
@@ -65,6 +68,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :start_at, :ends_at, :location, :capacity)
+      params.require(:event).permit(:name, :start_at, :ends_at, :location, :capacity, :organizer_id, :ticket_price)
     end
 end

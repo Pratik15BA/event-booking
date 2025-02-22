@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_22_111742) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_22_114127) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "start_at"
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_22_111742) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "organizer_id"
+    t.decimal "ticket_price"
     t.index ["organizer_id"], name: "index_events_on_organizer_id"
   end
 
@@ -31,6 +32,16 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_22_111742) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.string "seat_number"
+    t.integer "event_id", null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_tickets_on_event_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "mobile"
@@ -40,4 +51,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_22_111742) do
   end
 
   add_foreign_key "events", "organizers"
+  add_foreign_key "tickets", "events"
+  add_foreign_key "tickets", "users"
 end
