@@ -24,7 +24,8 @@
   <footer>
     <p>
       <%= link_to "Show this event", event %>&nbsp;&nbsp;
-      <a href="#" role="button">Book Ticket</a>
+      <%= link_to "Book", new_event_event_booking_path(event), role: "button" %>
+      <!--<a href="#" role="button">Book Ticket</a>-->
     </p>
   </footer>
 </article>

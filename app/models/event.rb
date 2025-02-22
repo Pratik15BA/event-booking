@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
     belongs_to :organizer
     has_many :tickets
+    has_many :users, through: :tickets
+
     validates :name, presence: true
     validates :location, presence: true
     validates :ticket_price, presence: true, numericality: {greater_than:0, less_than_or_equal_to:20000}
