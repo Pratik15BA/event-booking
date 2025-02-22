@@ -23,7 +23,8 @@
 
   <div>
     <%= form.label :gender, style: "display: block" %>
-    <%= form.text_field :gender %>
+    <%= form.select :gender, options_for_select([['male','male'],['female','female'],['other','other']])%>
+
   </div>
 
   <div>
