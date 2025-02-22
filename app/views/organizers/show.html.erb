@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @organizer %>
+
+<div>
+  <%= link_to "Edit this organizer", edit_organizer_path(@organizer) %> |
+  <%= link_to "Back to organizers", organizers_path %>
+
+  <%= button_to "Destroy this organizer", @organizer, method: :delete %>
+</div>
