@@ -42,6 +42,11 @@
   </div>
 
   <div>
+    <%= form.label :ticket_price, style: "display: block" %>
+    <%= form.number_field :ticket_price %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
