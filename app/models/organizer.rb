@@ -2,5 +2,5 @@ class Organizer < ApplicationRecord
     has_many :events
     validates :name, presence: true
     validates :email_id, presence: true
-    validates :contact_no, presence: true
+    validates :contact_no, presence: true, length: { is: 10 }
 end
