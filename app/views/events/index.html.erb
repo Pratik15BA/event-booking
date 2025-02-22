@@ -1,13 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Events</h1>
+<div>
+  <%= link_to "Users", users_path %>
+  <%= link_to "Organizer", new_organizer_path %>
+  <br/>
+  <%= link_to "Create Users", new_organizer_path %>
+  <%= link_to "Create Organizer", new_organizer_path %>
+</div>
 
-<div id="events">
+<div id="events" class="grid">
   <% @events.each do |event| %>
-    <%= render event %>
-    <p>
-      <%= link_to "Show this event", event %>
-    </p>
+    <div>
+      <%= render event %>
+    </div>
   <% end %>
 </div>
 

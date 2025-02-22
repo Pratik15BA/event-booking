@@ -1,9 +1,7 @@
-<div id="<%= dom_id event %>">
-  <p>
-    <strong>Name:</strong>
-    <%= event.name %>
-  </p>
+<article style="max-width: 500px;">
+  <img src="https://picsum.photos/500" alt="Card Image" height="500" width="500">
 
+  <h2 style="margin-top: 10px"><%= event.name %></h2>
   <p>
     <strong>Start at:</strong>
     <%= event.start_at %>
@@ -23,5 +21,11 @@
     <strong>Capacity:</strong>
     <%= event.capacity %>
   </p>
-
-</div>
+  <footer>
+    <p>
+      <%= link_to "Show this event", event %>&nbsp;&nbsp;
+      <a href="#" role="button">Book Ticket</a>
+    </p>
+  </footer>
+</article>
+<br>
